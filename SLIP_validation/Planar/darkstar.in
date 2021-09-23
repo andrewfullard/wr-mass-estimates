@@ -1,0 +1,171 @@
+ &input
+!Geometry, general
+ GEOM = 'tor' rmine = 1.0 thick = 1.0 thicks = 0.0 er1 = 0 er2 = 0
+ rho1_2 = 0.d0 temp = 20000
+!
+!Optical depths
+ taumax0 = 0.1d0 taumax90 = 0.d0 taus = 0.0d0
+!
+!Photon counts
+ nphotons = 1e8
+ nsrc = 0.5d0
+ nsrc2 = 0.5d0
+ nsh = 0.0d0
+ ncsm = 0.0d0
+!
+!Verbosity control
+ iwrite = 100000
+ nv1 = 0 nv2 = 10
+!
+!Grid settings. For 2D sim set npg to 1, for 1D sim set ntg to 1
+ rexp = 1 texp = 1 nrg = 100 ntg = 100 npg = 101
+!
+!Bin settings. For 2D output set nphi to 1, for 1D output set nmu to 1
+ nmu = 23 nphi = 40
+ nl = 1 nlin = 1 nalb = 2 nhe = 1
+!
+!Wavelength settings
+ lmin = 6020 lmax = 6060 dl = 40.d0
+!
+!Random number seed
+ i1 = 459211
+!
+!Photon re-emission
+ reemit='n'
+!
+!Spectral, Hydrogen emission and albedo calculation flags
+ sflag = 0 hflag = 0 albflag = 1
+!
+!Switch to toggle writing of image files (1='on', 0='off')
+ imageflag = 0
+!
+!Max radius of image, envelope in AU (rmaxe <= rmaxi)
+ rmaxi = 0.6d0 rmaxe = 0.6d0
+!
+!WR shell setup
+ rmind = 0.1
+!
+!Disk settings (deprecated? set taumax90 = 0 to turn off)
+ b = 1. a = 0. zmin = 0.1 rmaxd = 0.5d0
+!
+!Bowshock settings
+ cutang = 2.16d0  standoff = 1.4d0
+ densexp = 0.3d0 alph = 10.0
+!
+!Bubble settings
+ ebub = 1
+!
+!Hourglass settings
+ thethour = 25
+!
+!Cap settings
+ thetcap1 = 35  thetcap2 = 35
+!
+!Ellipsoid settings
+ ella = 0.4d0  ellb = 0.4d0  ellc = 0.4d0 profile = 'none'
+!
+!Torus settings
+ torh = 0.01d0
+!
+!Clump settings
+ clumpsep = 0.0d0 clumprad = 0.0d0
+!
+!Star parameters
+ rstar = 0.0 rstar2 = 0.0 massc = 120. limb = 0 limb2 = 0 starsep = 0.5
+!
+!Scattering settings
+ ithoms = 1 idust = 0 albd = 1
+!
+!Dust settings
+ kapd = 22.52 rlam = 1.  g = .2485 pl = 1. pc = .39 sc = 1.
+ cfile = '/home/mshrest9/11_07_14/dustfiles/dust_kmh_K.dat'
+!
+!Apertures
+ aperture1 = 10.d0
+!
+!Image resolution
+ nxhst = 0 nx = 199
+!
+!Peeloff image settings
+ thete = 90  phie = 0.  ipeel = 0
+!
+!Scatter limit
+ nos = -1
+/
+
+NOTE:  if envelope density = 0, set rmaxe=1 to speed up.
+
+!file, file for tabular dust phase functions, if idust=2
+GEOM, 'bub' for bubble, 'hour' for hourglass, 'cap' for cap, 'davi' for Davidson eta Car model, 'sph' for spherical envelope,
+'ell' for ellipsoidal envelope, 'bow' for bowshock, 'tor' for toroidal disk. 'wrsh' for spherical shell with interior emissive shell. See individual settings for control.
+a, exponent of power law for disk density, rho ~ r^(-a)
+albd, constant albedo when albflag = 0
+albflag, 1 for albedo calculation, 0 for fixed input albedo
+alph, density scalin factor for bowshock
+aperture1, sum results in this aperture (radius), in AU
+b, exponent of power law for height of disk, z ~ r^b
+clumprad, radius of clump in AU
+clumpsep, radial separation between CSM envelope and clump in AU
+cutang, cutoff angle for bow shock
+den, fraction to multiply rho2 which changes density
+densexp, exponential fall off of density after cut off angle
+density_file, radial density profile where first column is in cm and second column is density in g/cm^3
+dl, delta wavelength for steps between lmin and lmax. The modulus of (lmax-lmin)/dl should be 0
+ebub, exponent for bubble shape, 1=sphere, higher is more elongated
+ella, ellb, ellc = x, y, z semi-axes for ellipsoidal case
+er1, exponent for material inside shell, rho=rho1*(rad/rmin)**(-er1)
+er2, exponent for shell material , rho=rho2*(rad/rmin)**(-er2)
+g, forward throwing parameter for dust
+hflag, 0 for no H emission, 1 for H diffuse + line emission
+i1, random number seed
+idust, 0 for rayleigh (IR), 1 for forward throwing, 2 for tabular
+ipeel = 1, to make peeled-off image (slower), 0 for none
+ithoms, 1 for thomson scattering, 0 for dust
+iwrite, write to screen when this number of photons is reached
+kapd, dust opacity, cm^2/gm
+limb, =1 for limb darkening, 0 for not
+limb2, limb darkening for second star
+lmin, lmax, minimum and maximum wavelength bounds in angstroms
+massc, mass of star
+ncsm, fraction of photons emitted from the circumstellar shell (in units of nsrc)
+nmu, nphi, nl, nlin, nalb, nhe number of bins for theta, phi, wavelength, spectra, albedo, hydrogen emission
+nos, limit on number of scatters. Set to 1, limits photons to a single scatter. Set to -1 for unlimited scattering
+nrg, ntg, npg, number of grid cells for radius, theta, and phi. ntg should be an odd integer.
+nsh, fraction of photons emitted from the shock region (in units of nsrc)
+nsrc, number of photons emitted from the central source (express as integer)
+nsrc2, fraction of photons emitted from secondary source (in units of nsrc)
+nv1,nv2, verbose photon limits
+nxhst, nx, peeloff image and standard image resolution in pixels.
+pc, max. circular pol.
+phie, phi viewing angle for peeled off image (ipeel=1)
+pl, maximum linear polarization (at 90 degrees)
+profile, density profile of ellipsoid geometry
+reemit, 'y' to re-emit photons that hit the star, 'n' (or anything else) to destroy them
+rexp, radial exponent for grid (1 for constant r spacing)
+rho1, fiducial density for material inside shell
+rho2, fiducial density for shell material
+rho1_2, density scale factor from rho1 to rho2 i.e. rho1=rho1_2*rho2
+rlam, ratio of scattering to total opacity
+rmaxd, max radius of disk in AU
+rmaxe, max radius of envelope in AU
+rmaxi, 1/2 image diameter in AU
+rmind, inner edge to disk (in units of rstar) OR inner shell edge to CSM shell, in wrshell geometry case
+rmine, inner edge to envelope in rstar
+rstar, rstar2, stellar radii in units of solar radii
+sc, skew factor for dust pol.
+sflag, 0 for flat emitted spectrum (limits in setup.f), 1 to read 'spec.in'
+standoff, stand off distance of bow shock
+starsep, stellar separaton in AU (center to center)
+taumax0, desired total optical depth of the exterior shell (in the polar direction)
+taus, scattering optical depth in the shock region
+temp, temperature of exterior shell in K
+texp, theta exponent for grid (1 for constant theta spacing
+thetcap1 = opening angle for cap shape
+thetcap2 = if you want walls to have a width, make this bigger than thetcap, but normally, set this equal to thetcap1
+thete=theta viewing angle for peeled off image (ipeel=1)
+thethour = roughly, opening angle for hourglass shape (degrees)
+thick, thickness of shell (at rmax) in units of rmax
+thicks, thickness of shock region (interior to shell) in units of rmax
+torh = toroid height in units of rmaxe
+use_density_file, 1 to use the density_file, 0 to use constant density
+zmin, height of disk at stellar surface in units of rstar

@@ -1,0 +1,44 @@
+ PECHANGA -- SLIP version, 2017      
+ ==================================
+ total photons, all processors               800000000
+ geometry, tau, nsh, ncsm, temp: tor  0.1000 0.00 0.00     20000.
+ image size: rmaxi (au), nx  0.6000000             199
+ nxhst            0
+ aperture size in au   10.0000000000000     
+ make peeled images? 1=yes                      0
+ sflag, hflag, albflag           0           0           1
+ STELLAR PARAMETERS 
+ stellar radius   0.0000000E+00
+ stellar mass    120.0000    
+ limb darkening (0 for no, 1 for yes)                     0
+ DUST PARAMETERS 
+ ithoms? 1=yes for thomson scattering:            1
+ idust? 1= h-g; 0=rayleigh; 2 for tables            0
+ opacity(a=1), g, pl,hkapp   0.4000000      0.2485000       1.000000    
+  2.1165996E-04
+ temp, number density    20000.0000000000        16648204766.8596     
+ ENVELOPE PARAMETERS
+ rmine in AU, rstar   0.0000000E+00            NaN
+ rmaxe (AU)   0.6000000    
+ mass envelope (solar), taumax0   3.3986813E-10  0.1000000    
+ geometry: tor 
+ toroid height (rmaxe)   2.000000000000000E-002
+ density in envelope
+ rho1_2, rho1, er1, rho2, er2   0.000000000000000E+000  0.0000000E+00
+  0.0000000E+00  5.5704895E-14  0.0000000E+00
+ GRID PARAMETERS
+ nrg,ntg,npg,nmu,nphi,nlam          100         100         101          23
+          40           1
+ rexp, texp (1 for linear)    1.000000       1.000000    
+ lmin,lmax    6000.00000000000        6080.00000000000     
+ OUTPUT 
+ # photons emitted per cpu  8.0000000E+08
+ scattered flux fraction  1.7728017E-03
+ # line photons emitted per cpu                     0
+ ave number of scatters per scattered photon   1.006882    
+ back scattered flux, no. of scatters  0.000000000000000E+000
+ ave number of scatters per escaping photon  1.7850018E-03
+ # photons escaping per cpu   9999990.    
+ # photons absorbed by star per cpu, % of emitted  0.0000000E+00  0.0000000E+00
+ were these photons re-emitted? n
+ # of photons absorbed in atmosphere per cpu   9.00000000000000     
